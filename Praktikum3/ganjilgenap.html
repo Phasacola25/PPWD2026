@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek</title>
+
+    <style>
+        body {
+            font-family: Arial,sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #2f2c2c
+        }
+
+        .cekAngka {
+            background: grey;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,1);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 15px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            background: #2f2c2c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cekAngka">
+        <h2> Cek Ganjil atau Genap</h2>
+
+        <input type="number" id='angka' placeholder="Masukan Sebuah Angka"
+
+        <br><br>
+
+        <button onclick="cekAngka()">Cek</button>
+        <button onclick="reset()">Reset</button>
+
+        <div class="hasil">
+            hasil : <span id="hasilAngka"></span>
+        </div>
+
+    </div>
+    
+    <script>
+
+        function cekAngka() {
+
+            let angka = parseFloat(document.getElementById('angka').value);
+
+            // Validasi input
+            if (isNaN(angka)) {
+                document.getElementById('hasilAngka').innerHTML = 'Silakan masukkan angka!';
+                return;
+            }
+
+            // Mengecek apakah angka genap atau ganjil
+            if (angka % 2 === 0) {
+                document.getElementById('hasilAngka').innerHTML = 'Angka tersebut adalah GENAP';
+            } else {
+                document.getElementById('hasilAngka').innerHTML = 'Angka tersebut adalah GANJIL';
+            }
+        }
+
+        function reset() {
+            document.getElementById('angka').value = '';
+            document.getElementById('hasilAngka').innerHTML = '';
+        }
+
+    </script>
+
+</body>
+</html>
