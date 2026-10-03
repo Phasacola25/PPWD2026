@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Buku</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 15px;
+            background: #ad750f;
+        }
+
+        .formbuku {
+            background: #787266;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            padding: 15px;
+            margin: 5px;
+            font-size: 15px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 15px;
+            background-color: bisque;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        section {
+            background-color: #787266;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: #030303;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 500px) {
+            body {
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+            section {
+                padding: 10px;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <section>
+            <form id="formBuku" class="formbuku">
+                <h1>Formulir Buku</h1>
+
+                <input
+                    type="text"
+                    id="judul"
+                    placeholder="Masukan Judul Buku"
+                ><br>
+
+                <input
+                    type="text"
+                    id="penulis"
+                    placeholder="Masukan Nama Penulis"
+                ><br>
+
+                <input
+                    type="number"
+                    id="tahun"
+                    placeholder="Masukan Tahun Buku"
+                ><br>
+
+                <button type="submit">Tambah Buku</button>
+            </form>
+        </section>
+
+        <section>
+            <div class="tabel">
+                <h2>Daftar Buku</h2>
+
+                <p>
+                    Jumlah Buku:
+                    <strong id="jumlahBuku">0</strong>
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Judul Buku</th>
+                            <th>Penulis</th>
+                            <th>Tahun</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="daftarBuku">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>UTS Pemrograman Web Dasar</p>
+    </footer>
+
+    <script>
+        const formBuku = document.getElementById("formBuku");
+        const daftarBuku = document.getElementById("daftarBuku");
+        const jumlahBuku = document.getElementById("jumlahBuku");
+
+        formBuku.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let judul = document.getElementById("judul").value.trim();
+            let penulis = document.getElementById("penulis").value.trim();
+            let tahun = document.getElementById("tahun").value.trim();
+
+        
+            if (!/^\d{4}$/.test(tahun)) {
+                alert("Tahun buku harus terdiri dari 4 digit!");
+                return;
+            }
+
+        
+            let baris = daftarBuku.insertRow();
+
+            let nomor = baris.insertCell(0);
+            let kolomJudul = baris.insertCell(1);
+            let kolomPenulis = baris.insertCell(2);
+            let kolomTahun = baris.insertCell(3);
+            let kolomAksi = baris.insertCell(4);
+
+            nomor.textContent = daftarBuku.rows.length;
+            kolomJudul.textContent = judul;
+            kolomPenulis.textContent = penulis;
+            kolomTahun.textContent = tahun;
+
+            let tombolHapus = document.createElement("button");
+            tombolHapus.textContent = "Hapus";
+            tombolHapus.className = "hapus";
+
+            tombolHapus.addEventListener("click", function() {
+                baris.remove();
+
+                perbaruiNomor();
+            });
+
+            kolomAksi.appendChild(tombolHapus);
+
+            jumlahBuku.textContent = daftarBuku.rows.length;
+
+            formBuku.reset();
+        });
+
+ 
+    </script>
+
+</body>
+</html>
