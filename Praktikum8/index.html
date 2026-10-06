@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Sederhana</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Toko Sederhana</h1>
+        <div class="produk-container">
+            <div class="produk">
+                <h3>Kaos Polos</h3>
+                <p>
+                    Kaos polos nyaman untuk
+                    digunakan sehari-hari.
+                </p>
+                <p class="harga">
+                    Rp50.000
+                </p>
+                <button
+                    class="btn-tambah"
+                    data-nama="Kaos Polos"
+                    data-harga="50000">
+                    Tambah ke Keranjang
+                </button>
+            </div>
+            <div class="produk">
+                <h3>Hoodie</h3>
+                <p>
+                    Hoodie sederhana
+                    dan nyaman.
+                </p>
+                <p class="harga">
+                    Rp75.000
+                </p>
+                <button
+                    class="btn-tambah"
+                    data-nama="Hoodie"
+                    data-harga="75000">
+                    Tambah ke Keranjang
+                </button>
+            </div>
+            <div class="produk">
+                <h3>Topi</h3>
+                <p>
+                    Topi casual untuk
+                    kegiatan sehari-hari.
+                </p>
+                <p class="harga">
+                    Rp35.000
+                </p>
+                <button
+                    class="btn-tambah"
+                    data-nama="Topi"
+                    data-harga="35000">
+                    Tambah ke Keranjang
+                </button>
+            </div>
+        </div>
+        <div class="keranjang">
+            <h2>Keranjang Belanja</h2>
+            <div id="cartItems">
+                <p>
+                    Keranjang masih kosong.
+                </p>
+            </div>
+            <div class="total">
+                <p>
+                    Total sebelum diskon:
+                    <strong id="cartSubtotal">
+                        Rp0
+                    </strong>
+                </p>
+                <p class="diskon">
+                    Diskon:
+                    <strong id="cartDiscount">
+                        Rp0
+                    </strong>
+                </p>
+                <p class="total-bayar">
+                    Total Bayar:
+                    <strong id="cartTotal">
+                        Rp0
+                    </strong>
+                </p>
+                <button
+                    id="btnCheckout"
+                    class="btn-checkout">
+                    Checkout
+                </button>
+            </div>
+        </div>
+        <div id="hasilCheckout">
+            <h2>
+                Checkout Berhasil!
+            </h2>
+            <p>
+                Nama:
+                <strong id="hasilNama"></strong>
+            </p>
+            <p>
+                Alamat:
+                <strong id="hasilAlamat"></strong>
+            </p>
+            <p>
+                No HP:
+                <strong id="hasilHp"></strong>
+            </p>
+            <p>
+                Jumlah Barang:
+                <strong id="hasilQty"></strong>
+            </p>
+            <p>
+                Total Pembayaran:
+                <strong id="hasilTotal"></strong>
+            </p>
+            <p>
+                Riwayat transaksi telah disimpan.
+            </p>
+        </div>
+    </div>
+    <div id="modalPembeli" class="modal">
+        <div class="modal-content">
+            <h2>Data Pembeli</h2>
+            <form id="formPembeli">
+            
+                <div class="form-group">
+                    <label for="nama">
+                        Nama
+                    </label>
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Masukkan nama">
+                    <div
+                        id="errorNama"
+                        class="pesan-error">
+                    </div>
+                </div>
+          
+                <div class="form-group">
+                    <label for="alamat">
+                        Alamat
+                    </label>
+                    <textarea
+                        id="alamat"
+                        rows="3"
+                        placeholder="Masukkan alamat">
+                    </textarea>
+                    <div
+                        id="errorAlamat"
+                        class="pesan-error">
+                    </div>
+                </div>
+           
+                <div class="form-group">
+                    <label for="nohp">
+                        No HP
+                    </label>
+                    <input
+                        type="text"
+                        id="nohp"
+                        placeholder="Contoh: 08123456789">
+                    <div
+                        id="errorHp"
+                        class="pesan-error">
+                    </div>
+                </div>
+          
+                <button
+                    type="button"
+                    id="btnBatal"
+                    class="btn-batal">
+                    Batal
+                </button>
+                <button
+                    type="submit"
+                    class="btn-konfirmasi">
+                    Konfirmasi Checkout
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
