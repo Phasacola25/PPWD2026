@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 :root{
-    --primariy :  ;
+    --primary :  ;
     --dark :   ;
     --light :   ;
     --gray:   ;
@@ -59,7 +59,7 @@ nav .container{
 .hero-content h1{font-size: 48px; margin-bottom: 20px;}
 .hero-conten span{ color: var(--primary);}
 .btn{
-    display: inline-block; background: var(--primary); color: white;
+    display: inline-block; background: var(--primary); color: black;
     padding: 12px 30px; border-radius: 8px; text-decoration: none;
     font-weight: 600; transition: transform 0.3s, box-shadow 0.3;
 }
