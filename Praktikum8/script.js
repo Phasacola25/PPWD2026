@@ -12,7 +12,6 @@ $(document).ready(function () {
             produk.qty++;
         } else {
             cart.push({
-                nama: nama,
                 harga: harga,
                 qty: 1
             });
