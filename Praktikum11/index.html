@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetHub | Toko Handphone</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery dan jQuery Validation Plugin -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->X`
+    <nav>
+        <div class="container nav-container">
+
+            <a href="#beranda" class="logo">GadgetHub.</a>
+
+            <ul class="nav-list">
+                <li><a href="#beranda">Beranda</a></li>
+
+                <li class="dropdown">
+                    <button class="dropdown-btn" type="button">
+                        Produk ▾
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#produk">Smartphone</a></li>
+                        <li><a href="#produk">Tablet</a></li>
+                        <li><a href="#produk">Aksesoris</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#pesan">Pemesanan</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <header id="beranda" class="hero">
+        <div class="container">
+
+            <p class="hero-label">WELCOME TO GADGETHUB</p>
+
+            <h1>Upgrade Gadget,<br>
+                Upgrade Your Life.</h1>
+
+            <p>
+                Temukan smartphone dan aksesoris terbaik
+                dengan harga bersahabat dan kualitas terpercaya.
+            </p>
+
+            <a href="#produk" class="hero-btn">
+                Lihat Produk
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- PRODUK SECTION -->
+    <section id="produk" class="container">
+
+        <h2>Produk Pilihan</h2>
+
+        <p class="section-description">
+            Temukan gadget yang sesuai dengan kebutuhanmu.
+        </p>
+
+        <!-- TAB NAVIGATION -->
+        <div class="tabs">
+
+            <button class="tab active" data-target="#tab-smartphone">
+                Smartphone
+            </button>
+
+            <button class="tab" data-target="#tab-tablet">
+                Tablet
+            </button>
+
+            <button class="tab" data-target="#tab-aksesoris">
+                Aksesoris
+            </button>
+
+        </div>
+
+
+        <!-- SMARTPHONE -->
+        <div id="tab-smartphone" class="tab-panel menu-grid">
+
+            <div class="menu-card">
+                <div class="product-image">📱</div>
+                <h3>Samsung Galaxy A56</h3>
+                <p>
+                    Smartphone dengan layar AMOLED
+                    dan kamera berkualitas tinggi.
+                </p>
+                <div class="price">Rp 5.999.000</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="product-image">📱</div>
+                <h3>iPhone 16</h3>
+                <p>
+                    Performa tinggi dengan sistem
+                    kamera dan ekosistem Apple.
+                </p>
+                <div class="price">Rp 13.999.000</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="product-image">📱</div>
+                <h3>Xiaomi Redmi Note 14</h3>
+                <p>
+                    Smartphone dengan spesifikasi
+                    menarik dan harga kompetitif.
+                </p>
+                <div class="price">Rp 2.499.000</div>
+            </div>
+
+        </div>
+
+
+        <!-- TABLET -->
+        <div id="tab-tablet" class="tab-panel menu-grid"
+             style="display: none;">
+
+            <div class="menu-card">
+                <div class="product-image">📲</div>
+                <h3>Samsung Galaxy Tab S10</h3>
+                <p>
+                    Tablet untuk produktivitas,
+                    hiburan, dan pekerjaan.
+                </p>
+                <div class="price">Rp 9.499.000</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="product-image">📲</div>
+                <h3>iPad Air</h3>
+                <p>
+                    Tablet Apple dengan performa
+                    tinggi untuk berbagai kebutuhan.
+                </p>
+                <div class="price">Rp 10.999.000</div>
+            </div>
+
+        </div>
+
+
+        <!-- AKSESORIS -->
+        <div id="tab-aksesoris" class="tab-panel menu-grid"
+             style="display: none;">
+
+            <div class="menu-card">
+                <div class="product-image">🎧</div>
+                <h3>Wireless Earbuds</h3>
+                <p>
+                    Earbuds nirkabel dengan suara
+                    jernih dan desain minimalis.
+                </p>
+                <div class="price">Rp 299.000</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="product-image">🔋</div>
+                <h3>Powerbank 20.000 mAh</h3>
+                <p>
+                    Kapasitas besar untuk menemani
+                    aktivitas sehari-hari.
+                </p>
+                <div class="price">Rp 249.000</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang" class="about">
+
+        <div class="container about-content">
+
+            <h2>Tentang GadgetHub</h2>
+
+            <p>
+                GadgetHub merupakan toko yang menyediakan berbagai
+                pilihan smartphone, tablet, dan aksesoris elektronik.
+                Kami berkomitmen memberikan produk berkualitas,
+                harga kompetitif, dan pelayanan terbaik untuk pelanggan.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORM PEMESANAN -->
+    <section id="pesan" class="form-section">
+
+        <div class="container">
+
+            <h2>Formulir Pemesanan</h2>
+
+            <p class="section-description">
+                Isi formulir berikut untuk melakukan pemesanan produk.
+            </p>
+
+            <form id="formPesan" class="form-box">
+
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+
+                    <input type="text" id="nama" name="nama"
+                           placeholder="Masukkan nama lengkap">
+
+                    <div class="hint">
+                        Masukkan nama lengkap minimal 3 karakter.
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+
+                    <input type="email" id="email" name="email"
+                           placeholder="nama@email.com">
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="hp">Nomor WhatsApp</label>
+
+                    <input type="text" id="hp" name="hp"
+                           placeholder="Contoh: 081234567890">
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="alamat">Alamat Pengiriman</label>
+
+                    <textarea id="alamat" name="alamat"
+                              placeholder="Masukkan alamat lengkap"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="produkPilihan">Pilih Produk</label>
+
+                    <select id="produkPilihan" name="produk">
+
+                        <option value="">-- Pilih Produk --</option>
+
+                        <option value="Samsung Galaxy A56">
+                            Samsung Galaxy A56
+                        </option>
+
+                        <option value="iPhone 16">
+                            iPhone 16
+                        </option>
+
+                        <option value="Xiaomi Redmi Note 14">
+                            Xiaomi Redmi Note 14
+                        </option>
+
+                        <option value="Samsung Galaxy Tab S10">
+                            Samsung Galaxy Tab S10
+                        </option>
+
+                        <option value="iPad Air">
+                            iPad Air
+                        </option>
+
+                        <option value="Wireless Earbuds">
+                            Wireless Earbuds
+                        </option>
+
+                        <option value="Powerbank 20.000 mAh">
+                            Powerbank 20.000 mAh
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Pembelian</label>
+
+                    <input type="number" id="jumlah" name="jumlah"
+                           placeholder="Masukkan jumlah produk" min="1">
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="pembayaran">Metode Pembayaran</label>
+
+                    <select id="pembayaran" name="pembayaran">
+
+                        <option value="">-- Pilih Pembayaran --</option>
+                        <option value="Transfer Bank">Transfer Bank</option>
+                        <option value="E-Wallet">E-Wallet</option>
+                        <option value="COD">Cash on Delivery (COD)</option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit" class="btn">
+                    Kirim Pesanan
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; 2026 GadgetHub. All Rights Reserved.
+            | Praktikum Pemrograman Web Dasar
+        </p>
+    </footer>
+
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast"></div>
+
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" type="button"
+            aria-label="Kembali ke atas">
+        ↑
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
