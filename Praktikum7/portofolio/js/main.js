@@ -1,50 +1,132 @@
-const typingText = document.getElementById('typing-text');
-const names = ['Phasacola Grey Kalista','Web Developer', 'Mahasiswa SI'];
-let namaIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+// Script bersama untuk seluruh halaman portofolio.
+document.addEventListener("DOMContentLoaded", () => {
+  // Tahun footer otomatis.
+  document.querySelectorAll(".current-year").forEach((element) => {
+    element.textContent = new Date().getFullYear();
+  });
 
-function typeEffect() {
-    const currentName = names[nameIndex];
-    if (isDeleting){
-        typingText.textContent = currentName.substring(0,charIndex-1);
-        charIndex--;
-    } else {
-        typingText.textContent =currentName.substring(0, charIndex + 1);
-        charIndex++;
+  // Navigasi mobile.
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Tutup navigasi" : "Buka navigasi");
+    });
+  }
+
+  // Efek mengetik hanya dijalankan pada halaman yang memiliki elemen target.
+  const typingText = document.getElementById("typing-text");
+  if (typingText) {
+    const words = ["Web Developer", "Mahasiswa Sistem Informasi", "Technology Enthusiast"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      charIndex += deleting ? -1 : 1;
+      typingText.textContent = currentWord.slice(0, charIndex);
+
+      let delay = deleting ? 55 : 100;
+      if (!deleting && charIndex === currentWord.length) {
+        deleting = true;
+        delay = 1500;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 350;
+      }
+      window.setTimeout(typeEffect, delay);
     }
+    typeEffect();
+  }
 
-    let delay = isDeleting ? 50:100;
-    if (!isDeleting && charIndex === currentName.length) {
-        delay = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        nameIndex = (nameIndex + 1)% names.length;
-        delay = 500;
-    }
-    setTimeout(typeEffect, delay);
-}
-typeEffect();
-
-    //
-
+  // Data proyek dirender hanya jika project-grid tersedia.
+  const projectGrid = document.getElementById("project-grid");
+  if (projectGrid) {
     const projects = [
-        {title: 'Website Profil', desc:' Website Profil dengan HTML & CSS', image:'https://via.placeholder.com/300x200/2563eb/fff?text=profil'},{title:'Kalkulator JS', desc: 'Kalkulator interaktif', image:'https://via.placeholder.com/300x200/2563eb/fff?text=kalkulator'},{title: 'Form Interaktif', desc:'Form pendaftaran dengan validasi', image:'https://via.placeholder.com/300x200/2563eb/fff?text=form'},
+      { title: "Website Profil", description: "Website profil sederhana menggunakan HTML dan CSS.", symbol: "HTML" },
+      { title: "Kalkulator JavaScript", description: "Latihan logika dan interaksi menggunakan JavaScript.", symbol: "JS" },
+      { title: "Form Interaktif", description: "Formulir dengan pemeriksaan input di sisi browser.", symbol: "FORM" }
     ];
 
-   const projectGrid = document.getElementById('project-grid');
-    projects.forEach(project=>{
-        const card = document.createElement('div');
-        card.className = 'project-card';
-        card.innerHTML =`
-        <img src="${project.image}" alt="${project.title}">
-        <h3>${project.title}</h3>
-        <p>${project.desc}</p>
-        `;
-        card.addEventListener('click', ()=> {
-            alert(`Anda memilih proyek:${project.title}`);
-        });
-        projectGrid.appendChild(card);
-});
+    projectGrid.replaceChildren();
+    projects.forEach((project) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
 
+      const art = document.createElement("div");
+      art.className = "project-art";
+      art.textContent = project.symbol;
+
+      const copy = document.createElement("div");
+      copy.className = "project-copy";
+      const title = document.createElement("h3");
+      title.textContent = project.title;
+      const description = document.createElement("p");
+      description.textContent = project.description;
+
+      copy.append(title, description);
+      card.append(art, copy);
+      projectGrid.appendChild(card);
+    });
+  }
+
+  // Validasi formulir kontak. Data tidak dikirim ke server.
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    const fields = ["name", "email", "phone", "subject", "message"];
+    const status = document.getElementById("form-status");
+
+    function showError(fieldName, message) {
+      const field = contactForm.elements[fieldName];
+      const error = document.getElementById(`${fieldName}-error`);
+      field.classList.toggle("invalid", Boolean(message));
+      field.setAttribute("aria-invalid", String(Boolean(message)));
+      if (error) error.textContent = message;
+    }
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let valid = true;
+
+      fields.forEach((fieldName) => {
+        const field = contactForm.elements[fieldName];
+        const value = field.value.trim();
+        let message = "";
+
+        if (!value) {
+          message = "Bagian ini wajib diisi.";
+        } else if (fieldName === "name" && value.length < 3) {
+          message = "Nama minimal terdiri dari 3 karakter.";
+        } else if (fieldName === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          message = "Masukkan alamat email yang valid.";
+        } else if (fieldName === "phone" && !/^[0-9+() -]{8,20}$/.test(value)) {
+          message = "Nomor telepon harus 8–20 karakter dan berisi angka atau + ( ) -.";
+        } else if (fieldName === "message" && value.length < 10) {
+          message = "Pesan minimal terdiri dari 10 karakter.";
+        }
+
+        showError(fieldName, message);
+        if (message) valid = false;
+      });
+
+      if (valid) {
+        status.textContent = "Validasi berhasil. Formulir siap diproses (belum dikirim ke server).";
+        contactForm.reset();
+        fields.forEach((fieldName) => showError(fieldName, ""));
+      } else {
+        status.textContent = "Periksa kembali bagian yang masih salah.";
+      }
+    });
+
+    fields.forEach((fieldName) => {
+      contactForm.elements[fieldName].addEventListener("input", () => {
+        showError(fieldName, "");
+        status.textContent = "";
+      });
+    });
+  }
+});

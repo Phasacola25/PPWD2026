@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Grey</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Phasacola Grey Kalista, mahasiswa Sistem Informasi.">
+  <title>Portofolio Grey | Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-    <nav>
-        <div class ="container">
-            <div class="logo">My Portofolio</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+  <header class="site-header">
+    <nav class="container navbar" aria-label="Navigasi utama">
+      <a class="logo" href="index.html">Grey<span>.</span></a>
+      <button class="menu-toggle" type="button" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a class="active" aria-current="page" href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <section class="hero">      
-        <div class="hero-content">
-            <h1> Hallo, Saya Phasacola Grey Kalista<span id='typing-text'></span></h1>
-            <p>Mahasiswa Sistem Informasi</p>
-            <a href="contact.html" class="btn">Hubungi Saya</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">HALO, SELAMAT DATANG</p>
+        <h1>Saya <span class="accent">Phasacola Grey Kalista</span></h1>
+        <p class="hero-subtitle">Mahasiswa Sistem Informasi · <span id="typing-text" aria-live="polite">Web Developer</span><span class="typing-cursor" aria-hidden="true">|</span></p>
+        <p class="hero-description">Saya tertarik pada pengembangan web, teknologi, dan pemecahan masalah melalui solusi digital.</p>
+        <div class="hero-actions">
+          <a class="btn" href="contact.html">Hubungi Saya</a>
+          <a class="btn btn-outline" href="about.html">Kenali Saya</a>
         </div>
+      </div>
     </section>
-    <section class="projects">
-        <div class="container">
-            <h2>Proyek Saya</h2>
-            <div class='project-grid' id='project-grid'>               
-            </div>
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <p class="eyebrow">PORTOFOLIO</p>
+        <h2>Proyek Saya</h2>
+        <p class="section-intro">Beberapa contoh proyek latihan yang saya kembangkan.</p>
+        <div class="project-grid" id="project-grid">
+          <p class="loading-message">Memuat proyek...</p>
         </div>
+      </div>
     </section>
-    <footer>
-        <p>&copy; 2026 My Portofolio</p>
-    </footer>
-    <script src="js/main.js"></script> 
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>© <span class="current-year">2026</span> Phasacola Grey Kalista. Dibuat untuk pembelajaran.</p></div></footer>
 </body>
 </html>

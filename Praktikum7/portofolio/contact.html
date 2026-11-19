@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hubungi Phasacola Grey Kalista.">
+  <title>Portofolio Grey | Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container navbar" aria-label="Navigasi utama">
+      <a class="logo" href="index.html">Grey<span>.</span></a>
+      <button class="menu-toggle" type="button" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" aria-current="page" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="page-main">
+    <section class="section">
+      <div class="container narrow">
+        <p class="eyebrow">KONTAK</p>
+        <h1>Hubungi Saya</h1>
+        <p class="section-intro">Isi formulir berikut untuk menyampaikan pesan. Form ini melakukan validasi di browser dan belum mengirim data ke server.</p>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Nama lengkap</label>
+            <input id="name" name="name" type="text" autocomplete="name" required minlength="3" placeholder="Nama Anda">
+            <small class="field-error" id="name-error"></small>
+          </div>
+          <div class="form-group">
+            <label for="email">Alamat email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="nama@email.com">
+            <small class="field-error" id="email-error"></small>
+          </div>
+          <div class="form-group">
+            <label for="phone">Nomor telepon</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required pattern="[0-9+() -]{8,20}" placeholder="08xxxxxxxxxx">
+            <small class="field-error" id="phone-error"></small>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subjek</label>
+            <select id="subject" name="subject" required>
+              <option value="">Pilih subjek</option>
+              <option value="Kolaborasi">Kolaborasi</option>
+              <option value="Pertanyaan">Pertanyaan</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+            <small class="field-error" id="subject-error"></small>
+          </div>
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Tuliskan pesan Anda..."></textarea>
+            <small class="field-error" id="message-error"></small>
+          </div>
+          <button class="btn" type="submit">Periksa Formulir</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container"><p>© <span class="current-year">2026</span> Phasacola Grey Kalista. Dibuat untuk pembelajaran.</p></div></footer>
+</body>
+</html>
